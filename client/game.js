@@ -154,7 +154,7 @@ sounds.ambient.loop = true;
 sounds.ambient.volume = 0.5;
 
 // ---------------- Socket ----------------
-let socket = null;
+let socket = io("https://chudd-io.onrender.com");
 
 // ---------------- Join Button ----------------
 joinBtn.onclick = () => {
