@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #111;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+canvas {
+  display: block;
+  background-color: #222;
+}
+
+#menuOverlay {
+  font-family: 'rubik-bubbles', cursive;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(0,0,0,0.8);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+#menuOverlay input, #menuOverlay button {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+#menuOverlay button:hover {
+  cursor: pointer;
+  background-color: #444;
+}
+
+#deathOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.7);
+  color: red;
+  font-size: 64px;
+  display: flex; /* start hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#deathOverlay.show {
+  opacity: 1;
+}
+
+#levelUpEffect {
+  position: absolute;
+  top: 20%; left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  color: gold;
+  display: none;
+  text-shadow: 0 0 10px gold;
+}
+
+
+#leaderboard {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: white;
+  width: 180px;
+  font-family: Arial, sans-serif;
+}
+
+#leaderboard h3 {
+  margin: 0 0 5px 0;
+  text-align: center;
+}
+
+#leaderboardList {
+  padding-left: 20px;
+  margin: 0;
+}
+
+
+@font-face {
+  font-family: 'rubik-bubbles';
+  src: url('/rubik-bubbles.ttf') format('truetype');
+}
+
+#gameTitle {
+  font-family: 'rubik-bubbles', cursive;
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px #000;
+}
+
+#roundTimer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba(0,0,0,0.5);
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 100;
+}
