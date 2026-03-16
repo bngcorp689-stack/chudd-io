@@ -9,12 +9,22 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+const PORT = process.env.PORT || 3000;
 
-
-// ---------------- Serve client ----------------
+// ---------------- Serve static files ----------------
+// Serve everything in "client" folder at root
 app.use(express.static(path.join(__dirname, "client")));
-app.use("/assets", express.static(path.join(__dirname, "../assets")));
+
+// Serve sounds in "assets" folder at /assets
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+
+// Serve icons in "client/icons" folder at /icons
+app.use("/icons", express.static(path.join(__dirname, "client/icons")));
+
+// Serve the main HTML
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "client/index.html")));
+
+// Parse JSON requests
 app.use(express.json());
 
 // ---------------- MongoDB ----------------
@@ -294,5 +304,5 @@ setInterval(() => {
   io.emit("state", { players, foods, leaderboard, roundTimeLeft });
 }, 1000 / 60);
 
-const PORT = process.env.PORT || 3000;
+
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
