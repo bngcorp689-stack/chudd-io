@@ -12,9 +12,9 @@ const io = new Server(server);
 const PORT = 3000;
 
 // ---------------- Serve client ----------------
-app.use(express.static(path.join(__dirname, "../client")));
-app.use("/assets", express.static(path.join(__dirname, "../assets")));
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "../client/index.html")));
+app.use(express.static(path.join(__dirname, "client")));
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "client/index.html")));
 app.use(express.json());
 
 // ---------------- MongoDB ----------------
