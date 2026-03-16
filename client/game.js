@@ -163,7 +163,9 @@ joinBtn.onclick = () => {
   if (!username || !password) { joinMessage.innerText = "Username & password required"; return; }
 
   if (!socket) {
-    socket = io();
+    // Use your Render URL here
+    const SERVER_URL = "https://chudd-io.onrender.com"; // replace with your Render domain
+    socket = io(SERVER_URL);
 
     socket.on("connect_error", err => { joinMessage.innerText = "Cannot connect to server"; console.error(err); });
 

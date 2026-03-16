@@ -9,11 +9,11 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-const PORT = 3000;
+
 
 // ---------------- Serve client ----------------
 app.use(express.static(path.join(__dirname, "client")));
-app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use("/assets", express.static(path.join(__dirname, "../assets")));
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "client/index.html")));
 app.use(express.json());
 
@@ -294,4 +294,5 @@ setInterval(() => {
   io.emit("state", { players, foods, leaderboard, roundTimeLeft });
 }, 1000 / 60);
 
-server.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
